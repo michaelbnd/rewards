@@ -2,6 +2,7 @@ import React from 'react';
 import {
   SafeAreaView,
   View,
+  TouchableOpacity,
   Text,
   FlatList,
   Image,
@@ -53,7 +54,7 @@ function Product({product}: ProductProp) {
   const {width} = useWindowDimensions();
 
   return (
-    <View
+    <TouchableOpacity
       style={{
         marginHorizontal: 16,
         marginBottom: 32,
@@ -86,7 +87,7 @@ function Product({product}: ProductProp) {
           {product.cost} 👏
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
