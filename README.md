@@ -1,6 +1,5 @@
 # Hackaton
 ## Name
-- El Crack App
 - Reward Place
 - Rewards
 - Reworks
@@ -32,12 +31,3 @@
 ## Back Office
 - Storage of all the employees
 - RTDB Firebase
-
-## Priorities
-
-
-Ton indice de performance va te rapporter quelque chose de plus
-pas un outil de travail
-des chèaues cadeau
-trotinette elctrique
-Les reward doivent être
