@@ -12,14 +12,14 @@ export class TasksScreen extends Component {
   tasks = [
     {
       text: 'Complétion du reporting',
-      point: 20,
+      point: 25,
     },
     {
-      text: 'Finir Sprint',
+      text: "Fin d'un sprint",
       point: 50,
     },
     {
-      text: 'Faire des tâches en plus',
+      text: 'Réaliser des tâches bonus',
       point: 200,
     },
   ];

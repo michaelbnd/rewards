@@ -8,22 +8,36 @@ import {
   Image,
   useWindowDimensions,
 } from 'react-native';
-
+import Toast from 'react-native-root-toast';
 import {Header} from '../components/Header';
 
 let products = [
   {
     image:
-      'https://i.pinimg.com/originals/7f/6c/e8/7f6ce89091918f5a14264af5fc1382d2.jpg',
-    cost: 50,
-    name: 'Soirée',
+      'https://images.unsplash.com/photo-1459865264687-595d652de67e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    cost: 25,
+    name: 'Sport',
     description: 'Vendredi 25 juin',
   },
   {
     image:
-      'https://www.lantichambre.paris/img/articles/2020/cheques-vacances/article.jpg',
-    cost: 70,
+      'https://images.unsplash.com/photo-1475506631979-72412c606f4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    cost: 25,
+    name: 'Tournoi de Babyfoot',
+    description: 'Lundi 21 juin',
+  },
+  {
+    image:
+      'https://www.fae-montmorillon.fr/wp-content/uploads/2018/09/afterwork.jpg',
+    cost: 50,
     name: 'Afterwork',
+    description: 'Vendredi 25 juin',
+  },
+  {
+    image:
+      'https://images.unsplash.com/photo-1546006508-5bd647796a4c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    cost: 75,
+    name: 'Soirée',
     description: 'Mercredi 23 juin',
   },
   {
@@ -50,6 +64,12 @@ type ProductProp = {
   };
 };
 
+const getReward = () => {
+  Toast.show("Vous allez recevoir un mail d'ici peu 🎉", {
+    duration: Toast.durations.LONG,
+  });
+};
+
 function Product({product}: ProductProp) {
   const {width} = useWindowDimensions();
 
@@ -67,7 +87,8 @@ function Product({product}: ProductProp) {
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-      }}>
+      }}
+      onPress={getReward}>
       <Image
         source={{uri: product.image}}
         style={{
