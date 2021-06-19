@@ -7,9 +7,14 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
-import { BottomTabParamList} from '../types';
 import { TasksScreen } from '../screens/TaskScreen';
 import { ShopScreen } from '../screens/ShopScreen';
+
+type BottomTabParamList = {
+  Shop: undefined;
+  Tasks: undefined;
+};
+
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 

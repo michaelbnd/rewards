@@ -7,8 +7,13 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 
-import { RootStackParamList } from '../types';
 import BottomTabNavigator from './BottomTabNavigator';
+
+export type RootStackParamList = {
+  Root: undefined;
+  NotFound: undefined;
+};
+
 
 export default function Navigation() {
   return (
