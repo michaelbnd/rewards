@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
 import { BottomTabParamList} from '../types';
-import { Tasks } from '../screens/Task';
+import { TasksScreen } from '../screens/TaskScreen';
 import { ShopScreen } from '../screens/ShopScreen';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -20,7 +20,7 @@ export default function BottomTabNavigator() {
       tabBarOptions={{ activeTintColor: "#000" }}>
       <BottomTab.Screen
         name="Tasks"
-        component={Tasks}
+        component={TasksScreen}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
