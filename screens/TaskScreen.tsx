@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Header} from '../components/Header';
 import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import Toast from 'react-native-root-toast';
 
 export class TasksScreen extends Component {
   state = {
@@ -10,39 +11,58 @@ export class TasksScreen extends Component {
 
   tasks = [
     {
-      text: 'Completer reporting',
-      point: 100,
+      text: 'Complétion du reporting',
+      point: 20,
     },
     {
       text: 'Finir Sprint',
-      point: 100,
+      point: 50,
     },
     {
-      text: 'Faire des taches en plus',
-      point: 500,
+      text: 'Faire des tâches en plus',
+      point: 200,
     },
   ];
+
+  private taskClick() {
+    Toast.show('Demande envoyée au manager ✅', {
+      duration: Toast.durations.LONG,
+    });
+  }
 
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Header title="Taches" />
+        <Header title="Tâches" />
         <View style={{flex: 1, alignSelf: 'stretch'}}>
           <Text
             style={{
               fontWeight: 'bold',
-              fontSize: 20,
-              marginBottom: 16,
+              fontSize: 26,
+              marginTop: 16,
               marginLeft: 32,
             }}>
-            Vous avez {this.state.points} points {'\n'}Pour gagner plus de point
-            vous pouvez faire{' '}
+            Vous avez {this.state.points} 👏
+          </Text>
+          <Text
+            style={{
+              marginLeft: 32,
+              fontSize: 20,
+              marginTop: 4,
+              marginBottom: 32,
+              fontWeight: '500',
+              color: '#777',
+            }}>
+            Gagnez plus de points !
           </Text>
           {this.tasks.map((task, index) => {
             return (
-              <TouchableOpacity key={index} style={styles.task}>
+              <TouchableOpacity
+                key={index}
+                style={styles.task}
+                onPress={this.taskClick}>
                 <Text style={styles.taskTitle}>{task.text}</Text>
-                <Text style={styles.taskInfo}>Pour {task.point} points</Text>
+                <Text style={styles.taskInfo}>{task.point} 👏</Text>
               </TouchableOpacity>
             );
           })}
@@ -73,18 +93,31 @@ const styles = StyleSheet.create({
     marginLeft: 32,
   },
   task: {
-    padding: 10,
+    marginLeft: 32,
+    marginRight: 32,
+    marginBottom: 32,
+    padding: 12,
     fontSize: 18,
     alignSelf: 'stretch',
-    borderWidth: StyleSheet.hairlineWidth,
+    borderWidth: 0,
     borderRadius: 16,
-    margin: 10,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   taskTitle: {
     fontSize: 18,
+    fontWeight: 'bold',
   },
   taskInfo: {
+    marginTop: 8,
     alignSelf: 'flex-end',
+    fontWeight: '600',
   },
   separator: {
     marginVertical: 30,

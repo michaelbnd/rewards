@@ -6,8 +6,8 @@ import {
   FlatList,
   Image,
   useWindowDimensions,
-  TouchableOpacity,
 } from 'react-native';
+
 import {Header} from '../components/Header';
 
 let products = [
@@ -53,45 +53,52 @@ function Product({product}: ProductProp) {
   const {width} = useWindowDimensions();
 
   return (
-    <TouchableOpacity
+    <View
       style={{
         marginHorizontal: 16,
-        marginBottom: 16,
+        marginBottom: 32,
         backgroundColor: '#fff',
         borderRadius: 16,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
       }}>
       <Image
         source={{uri: product.image}}
         style={{
           backgroundColor: '#fff',
-          height: width / 2 - 32 - 16,
-          width: width / 2 - 32 - 16,
+          height: (width - 64) * 0.5,
+          width: width - 64,
           borderTopLeftRadius: 16,
           borderTopRightRadius: 16,
         }}
       />
       <View style={{padding: 8, paddingBottom: 24}}>
-        <Text style={{fontWeight: 'bold'}}>{product.name}</Text>
+        <Text style={{fontWeight: 'bold', fontSize: 20}}>{product.name}</Text>
         <Text style={{marginTop: 2, color: '#505050'}}>
           {product.description}
         </Text>
         <Text style={{marginTop: 8, fontWeight: '600', fontSize: 20}}>
-          {product.cost} points
+          {product.cost} 👏
         </Text>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
 export function RewardsScreen() {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#D8D7DB'}}>
+    <SafeAreaView style={{flex: 1}}>
       <Header title="Rewards" />
       <View style={{marginTop: 16, flex: 1}}>
         <FlatList
           data={products}
           contentContainerStyle={{paddingHorizontal: 16}}
-          numColumns={2}
+          numColumns={1}
           renderItem={({item}) => {
             return <Product product={item} />;
           }}

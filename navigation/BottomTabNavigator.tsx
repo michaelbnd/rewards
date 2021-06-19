@@ -26,7 +26,10 @@ export default function BottomTabNavigator() {
         name="Tasks"
         component={TasksScreen}
         options={{
-          tabBarIcon: ({color}) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarLabel: 'Tâches',
+          tabBarIcon: ({color}) => (
+            <TabBarIcon name="checkmark-circle" color={color} />
+          ),
         }}
       />
       <BottomTab.Screen
