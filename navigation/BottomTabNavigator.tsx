@@ -3,18 +3,17 @@
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {Ionicons} from '@expo/vector-icons';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
-import { TasksScreen } from '../screens/TaskScreen';
-import { ShopScreen } from '../screens/ShopScreen';
+import {TasksScreen} from '../screens/TaskScreen';
+import {RewardsScreen} from '../screens/RewardsScreen';
 
 type BottomTabParamList = {
-  Shop: undefined;
+  Rewards: undefined;
   Tasks: undefined;
 };
-
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -22,19 +21,19 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Tasks"
-      tabBarOptions={{ activeTintColor: "#000" }}>
+      tabBarOptions={{activeTintColor: '#000'}}>
       <BottomTab.Screen
         name="Tasks"
         component={TasksScreen}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({color}) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
-       <BottomTab.Screen
-        name="Shop"
-        component={ShopScreen}
+      <BottomTab.Screen
+        name="Rewards"
+        component={RewardsScreen}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="basket" color={color} />,
+          tabBarIcon: ({color}) => <TabBarIcon name="basket" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -43,6 +42,9 @@ export default function BottomTabNavigator() {
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
-function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+function TabBarIcon(props: {
+  name: React.ComponentProps<typeof Ionicons>['name'];
+  color: string;
+}) {
+  return <Ionicons size={30} style={{marginBottom: -3}} {...props} />;
 }
